@@ -59,7 +59,7 @@ app.get('/store/:idStore',(req,res)=>{
     const {idStore} = req.params;
     Store.findById(idStore).populate('products')
     .exec()
-    .then(Store = res.send(Store))
+    .then(Store => res.send(Store))
     .catch(err => res.status(409).send(err))
 
 })
