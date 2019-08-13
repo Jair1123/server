@@ -11,7 +11,7 @@ mongoose.connect(URL_MONGO,{useNewUrlParser:true},(err)=>{
 const Product = require('./models/Product');
 const Store = require('./models/Store');
 
-const PORT = 3030;
+const PORT =process.env.PORT||3030;
 const app = express();
 
 //Este sirve para que un objeto lo detecte como un json
