@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const URL_MONGO = 'mongodb+srv://Jair1312:dark5813@cluster0-ajnvi.mongodb.net/test?retryWrites=true&w=majority'
+const cors = require('cors');
 
 //¨Para checar si esta conectado
 mongoose.connect(URL_MONGO,{useNewUrlParser:true},(err)=>{
@@ -17,6 +18,8 @@ const app = express();
 //Este sirve para que un objeto lo detecte como un json
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(cors())
 
 app.get('/',(req,res)=>{
     res.send({message:'Server on'})
